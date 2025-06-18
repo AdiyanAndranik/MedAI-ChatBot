@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">MedAI Chatbot - Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-blue-600 text-white p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/8789/8789936.png" class="w-16 h-16 rounded-full border-2 border-white mr-4">
+                        <div>
+                            <h1 id="welcome-title" class="text-2xl font-bold">Welcome to MedAI Chatbot</h1>
+                            <p id="welcome-subtitle" class="text-sm opacity-80">Your trusted health companion</p>
+                        </div>
+                    </div>
+                    <div>
+                        <select id="language-select" class="bg-blue-700 text-white p-2 rounded-lg focus:outline-none">
+                            <option value="en">English</option>
+                            <option value="hy">Հայերեն</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="p-8 bg-gray-50">
+                    <h2 id="about-title" class="text-xl font-semibold text-gray-800 mb-4">About MedAI</h2>
+                    <p id="about-text" class="text-gray-600 mb-4">
+                        MedAI is a specialized medical AI assistant designed to provide accurate and empathetic answers to your health-related questions. Powered by advanced language models and medical knowledge, MedAI can help you understand symptoms, explore treatment options, and learn about health conditions.
+                    </p>
+                    <h3 id="how-to-use-title" class="text-lg font-semibold text-gray-800 mb-2">How to Use MedAI</h3>
+                    <ul id="how-to-use-list" class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Ask clear, specific questions about symptoms, conditions, or treatments.</li>
+                        <li>Examples: "What causes migraines?" or "How do I manage a sprained ankle?"</li>
+                        <li>MedAI provides informational responses, not medical diagnoses. Always consult a healthcare professional for serious concerns.</li>
+                        <li>Use the chat interface to interact with MedAI in real-time.</li>
+                    </ul>
+                    <h3 id="notes-title" class="text-lg font-semibold text-gray-800 mb-2">Important Notes</h3>
+                    <p id="notes-text" class="text-gray-600 mb-6">
+                        MedAI is not a doctor. Its responses are for educational purposes only. For medical emergencies or personalized advice, contact a licensed healthcare provider.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="http://127.0.0.1:8000/auth/login/" id="login-button" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 text-lg font-semibold text-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login
+                        </a>
+                        <a href="http://127.0.0.1:8080/chat?guest=true" id="guest-button" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200 text-lg font-semibold text-center">
+                            <i class="fas fa-user-clock mr-2"></i>Try as Guest
+                        </a>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <p id="no-account-text" class="text-gray-500 text-sm">Don't have an account?</p>
+                        <a href="http://127.0.0.1:8000/auth/register/" id="create-account-link" class="text-blue-600 hover:text-blue-800 font-semibold">
+                            Create Account <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const translations = {
+            en: {
+                pageTitle: "MedAI Chatbot - Welcome",
+                welcomeTitle: "Welcome to MedAI Chatbot",
+                welcomeSubtitle: "Your trusted health companion",
+                aboutTitle: "About MedAI",
+                aboutText: "MedAI is a specialized medical AI assistant designed to provide accurate and empathetic answers to your health-related questions. Powered by advanced language models and medical knowledge, MedAI can help you understand symptoms, explore treatment options, and learn about health conditions.",
+                howToUseTitle: "How to Use MedAI",
+                howToUseList: [
+                    "Ask clear, specific questions about symptoms, conditions, or treatments.",
+                    "Examples: 'What causes migraines?' or 'How do I manage a sprained ankle?'",
+                    "MedAI provides informational responses, not medical diagnoses. Always consult a healthcare professional for serious concerns.",
+                    "Use the chat interface to interact with MedAI in real-time."
+                ],
+                notesTitle: "Important Notes",
+                notesText: "MedAI is not a doctor. Its responses are for educational purposes only. For medical emergencies or personalized advice, contact a licensed healthcare provider.",
+                loginButton: "Login",
+                guestButton: "Try as Guest",
+                noAccountText: "Don't have an account?",
+                createAccountLink: "Create Account"
+            },
+            hy: {
+                pageTitle: "MedAI Չաթբոտ - Բարի գալուստ",
+                welcomeTitle: "Բարի գալուստ MedAI Չաթբոտ",
+                welcomeSubtitle: "Ձեր վստահելի բժշկական ուղեկիցը",
+                aboutTitle: "MedAI-ի մասին",
+                aboutText: "MedAI-ը մասնագիտացված բժշկական AI օգնական է, որը նախատեսված է Ձեր առողջության հետ կապված հարցերին ճշգրիտ և կարեկցող պատասխաններ տրամադրելու համար: Հիմնված առաջադեմ լեզվական մոդելների և բժշկական գիտելիքների վրա՝ MedAI-ը կարող է օգնել Ձեզ հասկանալ ախտանիշները, ուսումնասիրել բուժման տարբերակները և ծանոթանալ առողջական վիճակներին:",
+                howToUseTitle: "Ինչպե՞ս օգտագործել MedAI-ը",
+                howToUseList: [
+                    "Գրեք հստակ և կոնկրետ հարցեր ախտանիշների, վիճակների կամ բուժման մասին:",
+                    "Օրինակներ՝ «Ի՞նչն է առաջացնում միգրենը» կամ «Ինչպե՞ս կառավարել ոլորված կոճը»:",
+                    "MedAI-ը տրամադրում է տեղեկատվական պատասխաններ, այլ ոչ թե բժշկական ախտորոշումներ: Լուրջ խնդիրների դեպքում միշտ դիմեք բժշկի:",
+                    "Օգտագործեք չաթ բոտը՝ MedAI-ի հետ իրական ժամանակում փոխգործակցելու համար:"
+                ],
+                notesTitle: "Կարևոր նշումներ",
+                notesText: "MedAI-ը բժիշկ չէ: Նրա պատասխանները միայն կրթական նպատակներով են: Բժշկական արտակարգ իրավիճակների կամ անհատական խորհրդատվության համար դիմեք լիցենզավորված բժշկի:",
+                loginButton: "Մուտք",
+                guestButton: "Փորձել որպես հյուր",
+                noAccountText: "Չունե՞ք հաշիվ:",
+                createAccountLink: "Ստեղծել հաշիվ"
+            },
+            ru: {
+                pageTitle: "Чат-бот MedAI - Добро пожаловать",
+                welcomeTitle: "Добро пожаловать в чат-бот MedAI",
+                welcomeSubtitle: "Ваш надежный помощник по здоровью",
+                aboutTitle: "О MedAI",
+                aboutText: "MedAI — это специализированный медицинский ИИ-ассистент, разработанный для предоставления точных и эмпатичных ответов на ваши вопросы, связанные со здоровьем. Основанный на передовых языковых моделях и медицинских знаниях, MedAI может помочь вам понять симптомы, изучить варианты лечения и узнать о состояниях здоровья.",
+                howToUseTitle: "Как использовать MedAI",
+                howToUseList: [
+                    "Задавайте четкие и конкретные вопросы о симптомах, состояниях или лечении.",
+                    "Примеры: «Что вызывает мигрень?» или «Как справиться с растяжением лодыжки?»",
+                    "MedAI предоставляет информационные ответы, а не медицинские диагнозы. Всегда консультируйтесь с медицинским специалистом при серьезных проблемах.",
+                    "Используйте интерфейс чата для взаимодействия с MedAI в реальном времени."
+                ],
+                notesTitle: "Важные замечания",
+                notesText: "MedAI — не врач. Его ответы предназначены только для образовательных целей. В случае медицинских чрезвычайных ситуаций или для получения персонализированных советов обратитесь к лицензированному медицинскому работнику.",
+                loginButton: "Войти",
+                guestButton: "Попробовать как гость",
+                noAccountText: "Нет учетной записи?",
+                createAccountLink: "Создать аккаунт"
+            }
+        };
+
+        function updateContent(language) {
+            const content = translations[language];
+            document.getElementById('page-title').textContent = content.pageTitle;
+            document.title = content.pageTitle;
+            document.getElementById('welcome-title').textContent = content.welcomeTitle;
+            document.getElementById('welcome-subtitle').textContent = content.welcomeSubtitle;
+            document.getElementById('about-title').textContent = content.aboutTitle;
+            document.getElementById('about-text').textContent = content.aboutText;
+            document.getElementById('how-to-use-title').textContent = content.howToUseTitle;
+            const howToUseList = document.getElementById('how-to-use-list');
+            howToUseList.innerHTML = content.howToUseList.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('notes-title').textContent = content.notesTitle;
+            document.getElementById('notes-text').textContent = content.notesText;
+            
+            // Update button texts
+            document.getElementById('login-button').innerHTML = `<i class="fas fa-sign-in-alt mr-2"></i>${content.loginButton}`;
+            document.getElementById('guest-button').innerHTML = `<i class="fas fa-user-clock mr-2"></i>${content.guestButton}`;
+            
+            // Update account creation text
+            document.getElementById('no-account-text').textContent = content.noAccountText;
+            document.getElementById('create-account-link').innerHTML = `${content.createAccountLink} <i class="fas fa-arrow-right ml-1"></i>`;
+        }
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            updateContent(this.value);
+        });
+
+        updateContent('en');
+    </script>
+</body>
+</html>
